@@ -1,0 +1,204 @@
+{
+    "status": true,
+    "result": {
+        "matches": [
+            {
+                "id": "668321408",
+                "offset": 260.3535,
+                "timeskew": 0.00068700314,
+                "frequencyskew": -0.0003221631
+            }
+        ],
+        "location": {
+            "accuracy": 0.01
+        },
+        "timestamp": 1697493146523,
+        "timezone": "Europe/Moscow",
+        "track": {
+            "layout": "5",
+            "type": "MUSIC",
+            "key": "668321408",
+            "title": "Lime Green Skies (feat. Oscar Jerome)",
+            "subtitle": "Energy Exchange Ensemble",
+            "images": {
+                "background": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/0f/42/ad/0f42ade3-64d7-0c89-9bac-1cda35547d92/4251804161183_3000.jpg/400x400cc.jpg",
+                "coverart": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/0f/42/ad/0f42ade3-64d7-0c89-9bac-1cda35547d92/4251804161183_3000.jpg/400x400cc.jpg",
+                "coverarthq": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/0f/42/ad/0f42ade3-64d7-0c89-9bac-1cda35547d92/4251804161183_3000.jpg/400x400cc.jpg",
+                "joecolor": "b:1f1d1ep:00ff0as:ff00fft:07d10eq:d206d1"
+            },
+            "share": {
+                "subject": "Lime Green Skies (feat. Oscar Jerome) - Energy Exchange Ensemble",
+                "text": "Lime Green Skies (feat. Oscar Jerome) by Energy Exchange Ensemble",
+                "href": "https://www.shazam.com/track/668321408/lime-green-skies-feat-oscar-jerome",
+                "image": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/0f/42/ad/0f42ade3-64d7-0c89-9bac-1cda35547d92/4251804161183_3000.jpg/400x400cc.jpg",
+                "twitter": "I used @Shazam to discover Lime Green Skies (feat. Oscar Jerome) by Energy Exchange Ensemble.",
+                "html": "https://www.shazam.com/snippets/email-share/668321408?lang=en&country=GB",
+                "snapchat": "https://www.shazam.com/partner/sc/track/668321408"
+            },
+            "hub": {
+                "type": "APPLEMUSIC",
+                "image": "https://images.shazam.com/static/icons/hub/ios/v5/applemusic_{scalefactor}.png",
+                "actions": [
+                    {
+                        "name": "apple",
+                        "type": "applemusicplay",
+                        "id": "1690778036"
+                    },
+                    {
+                        "name": "apple",
+                        "type": "uri",
+                        "uri": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/41/a4/96/41a496a0-07b7-6dad-9d42-d474c9785998/mzaf_1567876659287622689.plus.aac.ep.m4a"
+                    }
+                ],
+                "options": [
+                    {
+                        "caption": "OPEN IN",
+                        "actions": [
+                            {
+                                "name": "hub:applemusic:deeplink",
+                                "type": "applemusicopen",
+                                "uri": "https://music.apple.com/gb/album/lime-green-skies-feat-oscar-jerome/1690778031?i=1690778036&mttnagencyid=s2n&mttnsiteid=125115&mttn3pid=Apple-Shazam&mttnsub1=Shazam_ios&mttnsub2=5348615A-616D-3235-3830-44754D6D5973&itscg=30201&app=music&itsct=Shazam_ios"
+                            },
+                            {
+                                "name": "hub:applemusic:deeplink",
+                                "type": "uri",
+                                "uri": "https://music.apple.com/gb/album/lime-green-skies-feat-oscar-jerome/1690778031?i=1690778036&mttnagencyid=s2n&mttnsiteid=125115&mttn3pid=Apple-Shazam&mttnsub1=Shazam_ios&mttnsub2=5348615A-616D-3235-3830-44754D6D5973&itscg=30201&app=music&itsct=Shazam_ios"
+                            }
+                        ],
+                        "beacondata": {
+                            "type": "open",
+                            "providername": "applemusic"
+                        },
+                        "image": "https://images.shazam.com/static/icons/hub/ios/v5/overflow-open-option_{scalefactor}.png",
+                        "type": "open",
+                        "listcaption": "Open in Apple Music",
+                        "overflowimage": "https://images.shazam.com/static/icons/hub/ios/v5/applemusic-overflow_{scalefactor}.png",
+                        "colouroverflowimage": false,
+                        "providername": "applemusic"
+                    },
+                    {
+                        "caption": "BUY",
+                        "actions": [
+                            {
+                                "type": "uri",
+                                "uri": "https://itunes.apple.com/gb/album/lime-green-skies-feat-oscar-jerome/1690778031?i=1690778036&mttnagencyid=s2n&mttnsiteid=125115&mttn3pid=Apple-Shazam&mttnsub1=Shazam_ios&mttnsub2=5348615A-616D-3235-3830-44754D6D5973&itscg=30201&app=itunes&itsct=Shazam_ios"
+                            }
+                        ],
+                        "beacondata": {
+                            "type": "buy",
+                            "providername": "itunes"
+                        },
+                        "image": "https://images.shazam.com/static/icons/hub/ios/v5/itunes-overflow-buy_{scalefactor}.png",
+                        "type": "buy",
+                        "listcaption": "Buy on iTunes",
+                        "overflowimage": "https://images.shazam.com/static/icons/hub/ios/v5/itunes-overflow-buy_{scalefactor}.png",
+                        "colouroverflowimage": false,
+                        "providername": "itunes"
+                    }
+                ],
+                "providers": [
+                    {
+                        "caption": "Open in Spotify",
+                        "images": {
+                            "overflow": "https://images.shazam.com/static/icons/hub/ios/v5/spotify-overflow_{scalefactor}.png",
+                            "default": "https://images.shazam.com/static/icons/hub/ios/v5/spotify_{scalefactor}.png"
+                        },
+                        "actions": [
+                            {
+                                "name": "hub:spotify:searchdeeplink",
+                                "type": "uri",
+                                "uri": "spotify:search:Lime%20Green%20Skies%20%28feat.%20Oscar%20Jerome%29%20Energy%20Exchange%20Ensemble"
+                            }
+                        ],
+                        "type": "SPOTIFY"
+                    },
+                    {
+                        "caption": "Open in Deezer",
+                        "images": {
+                            "overflow": "https://images.shazam.com/static/icons/hub/ios/v5/deezer-overflow_{scalefactor}.png",
+                            "default": "https://images.shazam.com/static/icons/hub/ios/v5/deezer_{scalefactor}.png"
+                        },
+                        "actions": [
+                            {
+                                "name": "hub:deezer:searchdeeplink",
+                                "type": "uri",
+                                "uri": "deezer-query://www.deezer.com/play?query=%7Btrack%3A%27Lime+Green+Skies+%28feat.+Oscar+Jerome%29%27%20artist%3A%27Energy+Exchange+Ensemble%27%7D"
+                            }
+                        ],
+                        "type": "DEEZER"
+                    }
+                ],
+                "explicit": false,
+                "displayname": "APPLE MUSIC"
+            },
+            "sections": [
+                {
+                    "type": "SONG",
+                    "metapages": [
+                        {
+                            "image": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/0f/42/ad/0f42ade3-64d7-0c89-9bac-1cda35547d92/4251804161183_3000.jpg/400x400cc.jpg",
+                            "caption": "Lime Green Skies (feat. Oscar Jerome)"
+                        }
+                    ],
+                    "tabname": "Song",
+                    "metadata": [
+                        {
+                            "title": "Album",
+                            "text": "Lime Green Skies (feat. Oscar Jerome) - Single"
+                        },
+                        {
+                            "title": "Label",
+                            "text": "Energy Exchange Records"
+                        },
+                        {
+                            "title": "Released",
+                            "text": "2023"
+                        }
+                    ]
+                },
+                {
+                    "type": "VIDEO",
+                    "tabname": "Video",
+                    "youtubeurl": "https://cdn.shazam.com/video/v3/-/GB/iphone/668321408/youtube/video?q=Energy+Exchange+Ensemble+%22Lime+Green+Skies+(feat.+Oscar+Jerome)%22"
+                },
+                {
+                    "type": "RELATED",
+                    "url": "https://cdn.shazam.com/shazam/v3/en/GB/iphone/-/tracks/track-similarities-id-668321408?startFrom=0&pageSize=20&connected=",
+                    "tabname": "Related"
+                }
+            ],
+            "url": "https://www.shazam.com/track/668321408/lime-green-skies-feat-oscar-jerome",
+            "artists": [
+                {
+                    "id": "42",
+                    "adamid": "1690778035"
+                }
+            ],
+            "isrc": "DECY52301210",
+            "genres": {
+                "primary": "Contemporary Jazz"
+            },
+            "urlparams": {
+                "{tracktitle}": "Lime+Green+Skies+%28feat.+Oscar+Jerome%29",
+                "{trackartist}": "Energy+Exchange+Ensemble"
+            },
+            "myshazam": {
+                "apple": {
+                    "actions": [
+                        {
+                            "name": "myshazam:apple",
+                            "type": "uri",
+                            "uri": "https://music.apple.com/gb/album/lime-green-skies-feat-oscar-jerome/1690778031?i=1690778036&mttnagencyid=s2n&mttnsiteid=125115&mttn3pid=Apple-Shazam&mttnsub1=Shazam_ios&mttnsub2=5348615A-616D-3235-3830-44754D6D5973&itscg=30201&app=music&itsct=Shazam_ios"
+                        }
+                    ]
+                }
+            },
+            "highlightsurls": {
+                "artisthighlightsurl": "https://cdn.shazam.com/video/v3/en/GB/iphone/1690778035/highlights?affiliate=mttnagencyid%3Ds2n%26mttnsiteid%3D125115%26mttn3pid%3DApple-Shazam%26mttnsub1%3DShazam_ios%26mttnsub2%3D5348615A-616D-3235-3830-44754D6D5973%26itscg%3D30201%26app%3Dmusic%26itsct%3DShazam_ios"
+            },
+            "relatedtracksurl": "https://cdn.shazam.com/shazam/v3/en/GB/iphone/-/tracks/track-similarities-id-668321408?startFrom=0&pageSize=20&connected=",
+            "albumadamid": "1690778031"
+        },
+        "tagid": "8FB87928-C7EB-4000-AADF-169554D0F72F"
+    }
+}
