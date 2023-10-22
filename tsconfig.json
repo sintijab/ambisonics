@@ -1,4 +1,4 @@
 {
   "extends": "astro/tsconfigs/strict",
-  "compileOnSave": true,
+  "compileOnSave": true
 }
