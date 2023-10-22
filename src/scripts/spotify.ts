@@ -1,9 +1,9 @@
 import { fetchSpotify } from "../utils/request";
 import { getCookie } from "../utils/cookie";
 
-function toggleRecommendations(e) {
+function toggleRecommendations(e: any) {
   console.log(e);
-  const id = e.target.id;
+  const id = e.target!.id;
   const seq = id.split("-");
   const item = document.getElementById(`rec_element_list-${seq[1]}`)!;
   item.toggleAttribute("hidden");
@@ -50,17 +50,32 @@ export async function handleSpotify(track: any) {
           `api/features?${authQuery}&track_id=${trackId}`,
         );
       }
-      const link = document.createElement("a");
-      link.href = `https://open.spotify.com/track/${trackId}`;
-      link.target = "_blank";
-      link.className = "link_button";
-      link.textContent = `${track.sections?.[0]?.metadata?.[0].text},  ${track.subtitle}, ${track.genres.primary}`;
-      const title = document.createElement("p");
-      title.appendChild(link);
+      const track_title = document.createElement("p");
+      const track_description = document.createElement("p");
+      const logo_link = document.createElement("a");
+      logo_link.href = `https://open.spotify.com/track/${trackId}`;
+      logo_link.target = "_blank";
+      track_title.className = "link_button link_button_text";
+      track_description.className = "link_button link_button_text";
+      logo_link.className = "link_button link_button_img";
+      const image = new Image();
+      image.src = 'images/spotify_icon.png';
+      image.height = 30;
+      track_title.textContent = `${track.sections?.[0]?.metadata?.[0].text}`;
+      track_description.textContent = `${track.subtitle}`;
+      logo_link.textContent = 'Open Spotify';
+      const title = document.createElement("div");
+      const title_spotify = document.createElement("p");
+      title_spotify.className = 'title_spotify';
+      title.appendChild(track_title);
+      title.appendChild(track_description);
+      title_spotify.appendChild(image);
+      title_spotify.appendChild(logo_link);
       const recordings = document.querySelectorAll(".clip");
       const clipContainer: HTMLElement = document.getElementById(
         `sound_clip-${recordings.length}`,
       ) as HTMLElement;
+      clipContainer.appendChild(title_spotify);
       clipContainer.appendChild(title);
       // Recommendations
       const descr_wrapper = document.createElement("div");
@@ -87,7 +102,7 @@ export async function handleSpotify(track: any) {
       rec_element_list.id = `rec_element_list-${recordings.length}`;
       rec_element_list.className = "rec_list";
       recommendations.tracks.forEach((rec_track: any) => {
-        const artists = rec_track?.artists?.map((artist) => artist.name);
+        const artists = rec_track?.artists?.map((artist: any) => artist.name);
         const rec_element_item = document.createElement("li");
         const rec_element = document.createElement("a");
         rec_element.textContent = `${rec_track?.name} - ${artists.join(", ")}`;

@@ -119,11 +119,9 @@ button {
 
 .btn-purple {
   /* background: linear-gradient(0deg, rgb(245 131 22 / 98%) 0%, rgb(199 73 2) 100%); */
-  background: linear-gradient(
-    0deg,
-    rgb(234 16 240 / 97%) 0%,
-    rgb(138 3 157) 100%
-  );
+  background: linear-gradient(0deg,
+      rgb(234 16 240 / 97%) 0%,
+      rgb(138 3 157) 100%);
 }
 
 .btn-purple span:hover {
@@ -197,7 +195,6 @@ audio {
 
 .clip p {
   font-size: 1rem;
-  margin: 0.5rem 0;
 }
 
 .clip button {
@@ -242,12 +239,8 @@ aside a {
   color: #666;
 }
 
-input[type="checkbox"]:checked ~ aside {
+input[type="checkbox"]:checked~aside {
   transform: translateX(0);
-}
-
-.clip p {
-  cursor: pointer;
 }
 
 .intro {
@@ -325,7 +318,7 @@ h2 {
 }
 
 .link_button {
-  padding: 0.5rem;
+  padding: .5rem;
   font-weight: 600;
   text-decoration: none;
   font-size: 1rem;
@@ -334,8 +327,14 @@ h2 {
   align-items: center;
 }
 
+.link_button_text {
+  padding: 0;
+}
+
 .toggle_indicator-closed {
   height: 23px;
+  padding: 1.5rem 0;
+  cursor: pointer;
 }
 
 .rec_list {
@@ -370,6 +369,28 @@ h2 {
   padding: 0.5rem 0 0;
   height: 15px;
   display: flex;
+}
+
+.title_spotify {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  background: #1DB954;
+  padding: 5px;
+  border-radius: 25rem;
+  border-radius: 25px;
+  margin: 1.5rem 0 1rem;
+  border: 1px solid #ffffff;
+  box-shadow:
+    inset 2px 2px 2px 0px rgba(255, 255, 255, 0.3),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1),
+    4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+.title_spotify a {
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: 400;
 }
 
 @media (min-width: 783px) {
