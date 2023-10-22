@@ -4,13 +4,15 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
+    "dev": "deno run -A --unstable npm:astro dev",
+    "start": "deno run -A --unstable npm:astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "preview": "deno run -A --unstable ./dist/server/entry.mjs",
+    "astro": "astro",
+    "format": "deno fmt && prettier --write ."
   },
   "dependencies": {
+    "@astrojs/deno": "^4.2.0",
     "@astrojs/node": "^6.0.3",
     "@astrojs/sitemap": "^3.0.2",
     "@fontsource-variable/cabin": "^5.0.14",
@@ -18,11 +20,28 @@
     "@fontsource/dm-serif-display": "^5.0.15",
     "astro": "^3.3.1",
     "cookie-parser": "^1.4.6",
+    "deno-astro-adapter": "^4.2.0",
     "querystring": "^0.2.1",
     "request": "^2.88.2"
   },
   "devDependencies": {
     "@types/node": "^20.8.6",
-    "@types/request": "^2.48.10"
+    "@types/request": "^2.48.10",
+    "prettier": "^3.0.0",
+    "prettier-plugin-astro": "^0.11.0"
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "plugins": [
+      "./node_modules/prettier-plugin-astro/dist/index.js"
+    ],
+    "overrides": [
+      {
+        "files": "*.astro",
+        "options": {
+          "parser": "astro"
+        }
+      }
+    ]
   }
 }
