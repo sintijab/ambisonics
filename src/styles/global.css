@@ -245,16 +245,23 @@ input[type="checkbox"]:checked~aside {
 
 .intro {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   justify-content: center;
   z-index: 2;
   position: relative;
   background-color: #ffffff;
   width: 100%;
   align-items: center;
+  overflow: hidden;
 }
 
 @media (min-width: 783px) {
+  .intro {
+    overflow: visible;
+  }
+}
+
+@media (min-width: 1080px) {
   .intro {
     flex-direction: row;
   }
@@ -300,12 +307,11 @@ input[type="checkbox"]:checked~aside {
   flex-direction: column;
   line-height: 1.5;
   text-align: left;
-  margin: 0 1rem;
+  margin: auto 1rem;
   position: absolute;
   z-index: 2;
   color: white;
   right: 0;
-  bottom: 0;
 }
 
 .intro_descr h1,
@@ -399,21 +405,26 @@ h2 {
 .intro_img--bottom {
   align-self: flex-end;
   margin-bottom: -2rem;
-  margin-right: -2rem;
   z-index: 0;
+}
+
+@media (min-width: 1080px) {
+  .intro_img--bottom {
+    margin-right: -2rem;
+  }
 }
 
 .intro_img--top {
   position: absolute;
-  left: 20%;
-  top: 2rem;
+  left: 0;
+  top: 60%;
   margin-bottom: -2rem;
-  margin-right: -2rem;
+  margin-right: auto;
+  z-index: 1 !important;
 }
 
 @media (min-width: 783px) {
   .intro_descr {
-    width: 40%;
     margin: 1rem 2rem -1rem;
   }
 
@@ -433,5 +444,32 @@ h2 {
 
   .rec_list li {
     width: 48%;
+  }
+
+  .intro_img--top {
+    position: absolute;
+  }
+
+  .intro_img--bottom {
+    max-width: 60%;
+  }
+}
+
+@media (max-width: 1080px) {
+  .intro_img--main {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1080px) {
+  .intro_descr {
+    bottom: .5rem;
+    width: 40%;
+  }
+
+  .intro_img--top {
+    left: 20%;
+    top: 2rem;
+    margin-right: -2rem;
   }
 }
