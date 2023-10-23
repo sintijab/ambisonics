@@ -497,7 +497,7 @@ function videoSyling() {
 }
 
 function videoController() {
-  const nextVideoIndex = videoIndex === 8 ? 1 : videoIndex + 1;
+  const nextVideoIndex = videoIndex > 8 ? 1 : videoIndex + 1;
   video.setAttribute("src", `/images/0${nextVideoIndex}.mp4`);
   video.play();
   videoIndex++;
