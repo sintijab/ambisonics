@@ -18,7 +18,7 @@ export const GET: APIRoute = async ({ request }): Promise<any> => {
             },
           });
     } else {
-        return new Response(JSON.stringify('Unauthorized'), {
+        return new Response(JSON.stringify(`Unauthorized ${password === password_api}, ${password_api}`), {
             status: 401,
             headers: {
               "Content-Type": "application/json",
