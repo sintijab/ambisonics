@@ -1,7 +1,8 @@
 import type { APIRoute } from "astro";
 import querystring from "querystring";
+import { config } from "https://deno.land/x/dotenv/mod.ts";
 
-var client_id = `${import.meta.env.CLIENT_ID}`;
+var client_id = config().CLIENT_ID;
 var redirect_uri = "http://localhost:4321/api/callback";
 var stateKey = "spotify_auth_state";
 var scope = "user-read-private user-read-email";
