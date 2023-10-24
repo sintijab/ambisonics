@@ -34,3 +34,5 @@ interface IMediaRecorderContext {
 }
 
 window.mrctx = IMediaRecorderContext;
+
+declare module 'https://*'

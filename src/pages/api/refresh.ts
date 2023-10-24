@@ -1,14 +1,14 @@
 import type { APIRoute } from "astro";
 import { decodeBasicAuth } from "../../utils/auth";
+import { config } from "https://deno.land/x/dotenv/mod.ts";
 
-
-var client_id = `${import.meta.env.CLIENT_ID}`;
-var client_secret = `${import.meta.env.CLIENT_SECRET}`;
+var client_id = config().CLIENT_ID;
+var client_secret = config().CLIENT_SECRET;
 
 export const GET: APIRoute = async ({ url, request }): Promise<any> => {
   try {
     const password = decodeBasicAuth(request.headers.get('authorization')!);
-    const password_api = `${import.meta.env.PASSWORD_API}`;
+    const password_api = config().PASSWORD_API;
     const queries = new URLSearchParams(url.search);
     const refresh_token = queries.get("refresh_token");
     var authOptions = {
