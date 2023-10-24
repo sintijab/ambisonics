@@ -17,8 +17,6 @@ fetch(url, {
         if (response.ok) {
             setCookie("basic_auth_pw", pw, 30);
             return response.json();
-        } else {
-            window.location.href = "/";
         }
     })
     .catch((_) => console.log("test"));
