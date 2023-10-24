@@ -1,6 +1,6 @@
 import { getCookie, setCookie } from "../utils/cookie";
 
-console.log(`${import.meta.env.TEST_SECRET}`);
+console.log(`${import.meta.env.PUBLIC_TEST_SECRET}`);
 let pw = getCookie("basic_auth_pw")!;
 if (!pw) {
     pw = prompt("Enter the password");
