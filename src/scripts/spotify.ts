@@ -2,7 +2,6 @@ import { fetchSpotify } from "../utils/request";
 import { getCookie } from "../utils/cookie";
 
 function toggleRecommendations(e: any) {
-  console.log(e);
   const id = e.target!.id;
   const seq = id.split("-");
   const item = document.getElementById(`rec_element_list-${seq[1]}`)!;

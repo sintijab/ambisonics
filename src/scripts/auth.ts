@@ -18,4 +18,4 @@ fetch(url, {
             return response.json();
         }
     })
-    .catch((_) => console.log("test"));
+    .catch((_) => console.log("failed authorization"));
