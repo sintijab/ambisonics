@@ -1,18 +1,17 @@
 import res from "./discoverMock.json";
 import { decodeBasicAuth } from "../../utils/auth";
-import { config } from "https://deno.land/x/dotenv/mod.ts";
 
 export const POST = async ({ request }: { request: Request }): Promise<any> => {
   try {
     const password = decodeBasicAuth(request.headers.get('authorization')!);
-    const password_api = config().PASSWORD_API;
+    const password_api = `${import.meta.env.PASSWORD_API}`;
     if (password === password_api) {
     const data = await request.formData();
     const url = "https://shazam-api6.p.rapidapi.com/shazam/recognize/";
     const options = {
       method: "POST",
       headers: {
-        "X-RapidAPI-Key": config().RAPID_API_KEY,
+        "X-RapidAPI-Key": `${import.meta.env.RAPID_API_KEY}`,
         "X-RapidAPI-Host": "shazam-api6.p.rapidapi.com",
       },
       body: data,

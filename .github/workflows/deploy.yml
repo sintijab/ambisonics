@@ -32,6 +32,9 @@ jobs:
         env:
           PASSWORD_API: ${{ secrets.PASSWORD_API }}
           TEST_SECRET: ${{ secrets.TEST_SECRET }}
+          RAPID_API_KEY: ${{ secrets.RAPID_API_KEY }}
+          CLIENT_ID: ${{ secrets.CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
         run: "npm install --legacy-peer-deps && npm run build" # 📝 Update the build command(s) if necessary
 
       - name: Upload to Deno Deploy
