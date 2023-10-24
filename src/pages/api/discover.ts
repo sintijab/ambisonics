@@ -1,6 +1,11 @@
 import res from "./discoverMock.json";
+import { decodeBasicAuth } from "../../utils/auth";
+
 export const POST = async ({ request }: { request: Request }): Promise<any> => {
   try {
+    const password = decodeBasicAuth(request.headers.get('authorization')!);
+    const password_api = `${import.meta.env.PASSWORD_API}`;
+    if (password === password_api) {
     const data = await request.formData();
     const url = "https://shazam-api6.p.rapidapi.com/shazam/recognize/";
     const options = {
@@ -14,17 +19,25 @@ export const POST = async ({ request }: { request: Request }): Promise<any> => {
     // const response = await fetch(url, options as any);
     // @ts-ignore
     // const res = await response.json();
-    return new Response(JSON.stringify(res), {
-      headers: {
-        "Content-Type": "application/json",
-        // "Cache-Control": "no-store",
-        // "Content-Security-Policy": "frame-ancestors 'none'",
-        // // "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
-        // "X-Content-Type-Options": "nosniff",
-        // "X-Frame-Options": "DENY",
-        // "Access-Control-Allow-Origin": '*'
-      },
-    });
+      return new Response(JSON.stringify(res), {
+        headers: {
+          "Content-Type": "application/json",
+          // "Cache-Control": "no-store",
+          // "Content-Security-Policy": "frame-ancestors 'none'",
+          // // "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+          // "X-Content-Type-Options": "nosniff",
+          // "X-Frame-Options": "DENY",
+          // "Access-Control-Allow-Origin": '*'
+        },
+      });
+    } else {
+      return new Response(JSON.stringify('Unauthorized'), {
+        status: 401,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    }
   } catch (error) {
     console.error(error);
   }

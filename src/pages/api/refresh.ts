@@ -1,10 +1,14 @@
 import type { APIRoute } from "astro";
+import { decodeBasicAuth } from "../../utils/auth";
+
 
 var client_id = `${import.meta.env.CLIENT_ID}`;
 var client_secret = `${import.meta.env.CLIENT_SECRET}`;
 
-export const GET: APIRoute = async ({ url }): Promise<any> => {
+export const GET: APIRoute = async ({ url, request }): Promise<any> => {
   try {
+    const password = decodeBasicAuth(request.headers.get('authorization')!);
+    const password_api = `${import.meta.env.PASSWORD_API}`;
     const queries = new URLSearchParams(url.search);
     const refresh_token = queries.get("refresh_token");
     var authOptions = {
@@ -23,29 +27,37 @@ export const GET: APIRoute = async ({ url }): Promise<any> => {
     const params = new URLSearchParams();
     params.append("grant_type", authOptions.form.grant_type);
     params.append("refresh_token", authOptions.form.refresh_token as string);
-
-    const response = await fetch(authOptions.url, {
-      method: "POST",
-      body: params,
-      headers: authOptions.headers,
-    }).catch((err) => console.error(err));
-    const body = await response?.json();
-    return new Response(
-      JSON.stringify({
-        access_token: body.access_token,
-      }),
-      {
+    if (password === password_api) {
+      const response = await fetch(authOptions.url, {
+        method: "POST",
+        body: params,
+        headers: authOptions.headers,
+      }).catch((err) => console.error(err));
+      const body = await response?.json();
+      return new Response(
+        JSON.stringify({
+          access_token: body.access_token,
+        }),
+        {
+          headers: {
+            "Content-Type": "application/json",
+            // "Cache-Control": "no-store",
+            // "Content-Security-Policy": "frame-ancestors 'none'",
+            // // "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+            // "X-Content-Type-Options": "nosniff",
+            // "X-Frame-Options": "DENY",
+            // "Access-Control-Allow-Origin": '*'
+          },
+        },
+      );
+    } else {
+      return new Response(JSON.stringify('Unauthorized'), {
+        status: 401,
         headers: {
           "Content-Type": "application/json",
-          // "Cache-Control": "no-store",
-          // "Content-Security-Policy": "frame-ancestors 'none'",
-          // // "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
-          // "X-Content-Type-Options": "nosniff",
-          // "X-Frame-Options": "DENY",
-          // "Access-Control-Allow-Origin": '*'
         },
-      },
-    );
+      });
+    }
   } catch (error: unknown) {
     console.error(`Error in player api route: ${error as string}`);
   }

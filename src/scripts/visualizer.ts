@@ -1,7 +1,7 @@
 import { useOnStop } from "./mediaRecorder";
 import { handleSpotify } from "./spotify";
 import { mrctx } from "../utils/global";
-
+import { getCookie } from "../utils/cookie";
 var {
   audioContext,
   analyser,
@@ -44,9 +44,14 @@ function init() {
         const data = new FormData();
         data.append("upload_file", audioFile);
         try {
+          const pw = getCookie("basic_auth_pw");
+          let headers = new Headers();
+          let username = "user";
+          headers.set("Authorization", "Basic " + btoa(username + ":" + pw));
           const response = await fetch("api/discover", {
             method: "POST",
             body: data,
+            headers
           });
           const res = await response.json();
           const { track, matches } = res.result;
