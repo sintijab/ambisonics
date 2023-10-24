@@ -1,11 +1,9 @@
-import { config } from "https://deno.land/x/dotenv/mod.ts";
-
 import type { APIRoute } from "astro";
 import querystring from "querystring";
 
 var redirect_uri = "http://localhost:4321/api/callback";
-var client_id = config().CLIENT_ID;
-var client_secret = config().CLIENT_SECRET;
+var client_id = `${import.meta.env.CLIENT_ID}`;
+var client_secret = `${import.meta.env.CLIENT_SECRET}`;
 
 export const GET: APIRoute = async ({
   cookies,

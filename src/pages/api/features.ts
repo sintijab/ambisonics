@@ -1,7 +1,6 @@
 import type { APIRoute } from "astro";
 import res from "./featuresMock.json";
 import { decodeBasicAuth } from "../../utils/auth";
-import { config } from "https://deno.land/x/dotenv/mod.ts";
 
 export const GET: APIRoute = async ({ url, request }): Promise<any> => {
   const queries = new URLSearchParams(url.search);
@@ -13,7 +12,7 @@ export const GET: APIRoute = async ({ url, request }): Promise<any> => {
   const username = "user";
   headers.set("Authorization", "Basic " + btoa(username + ":" + password));
   try {
-    const password_api = config().PASSWORD_API;
+    const password_api = `${import.meta.env.PASSWORD_API}`;
     const trackId = queries.get("track_id");
     if (password === password_api) {
     // const features = await fetch(`https://api.spotify.com/v1/audio-features/${trackId}`, {
