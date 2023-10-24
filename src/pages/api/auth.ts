@@ -20,7 +20,7 @@ export const GET: APIRoute = async ({ request }): Promise<any> => {
             },
           });
     } else {
-        return new Response(JSON.stringify('Unauthorized'), {
+        return new Response(JSON.stringify(`Unauthorized ${config().TEST_SECRET}`), {
             status: 401,
             headers: {
               "Content-Type": "application/json",
