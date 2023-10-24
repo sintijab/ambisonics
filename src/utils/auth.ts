@@ -2,6 +2,6 @@ export function decodeBasicAuth(authorization: string) {
     if (!authorization) {
         return null;
     }
-    const decoded = new Buffer(authorization!.split(" ")[1], 'base64').toString();
+    const decoded = atob(authorization.split(" ")[1]);
     return decoded.split(':')[1];
 }
