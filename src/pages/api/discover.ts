@@ -16,18 +16,17 @@ export const POST = async ({ request }: { request: Request }): Promise<any> => {
       },
       body: data,
     };
-    // const response = await fetch(url, options as any);
-    // @ts-ignore
-    // const res = await response.json();
+    const response = await fetch(url, options as any);
+    const res = await response.json();
       return new Response(JSON.stringify(res), {
         headers: {
           "Content-Type": "application/json",
-          // "Cache-Control": "no-store",
-          // "Content-Security-Policy": "frame-ancestors 'none'",
-          // // "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
-          // "X-Content-Type-Options": "nosniff",
-          // "X-Frame-Options": "DENY",
-          // "Access-Control-Allow-Origin": '*'
+          "Cache-Control": "no-store",
+          "Content-Security-Policy": "frame-ancestors 'none'",
+          "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "DENY",
+          "Access-Control-Allow-Origin": '*'
         },
       });
     } else {

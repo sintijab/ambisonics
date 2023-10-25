@@ -1,7 +1,7 @@
 import type { APIRoute } from "astro";
 import querystring from "querystring";
 
-var redirect_uri = "http://localhost:4321/api/callback";
+var redirect_uri = `${import.meta.env.CANONICAL_URL}/api/callback`;
 var client_id = `${import.meta.env.CLIENT_ID}`;
 var client_secret = `${import.meta.env.CLIENT_SECRET}`;
 

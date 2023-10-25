@@ -41,6 +41,7 @@ function init() {
       mediaRecorder!.onstop = async function (e) {
         const { blob } = useOnStop(chunks);
         const audioFile = new File([blob], "voice.wav", { type: "audio/wav" });
+        chunks = [];
         const data = new FormData();
         data.append("upload_file", audioFile);
         try {
@@ -57,6 +58,15 @@ function init() {
           const { track, matches } = res.result;
           if (matches.length) {
             handleSpotify(track);
+          } else {
+            const recordings = document.querySelectorAll(".clip");
+            const clipContainer: HTMLElement = document.getElementById(
+              `sound_clip-${recordings.length}`,
+            ) as HTMLElement;
+            const title = document.createElement("p");
+            title.className = "results_title";
+            title.textContent = 'No results, try recording longer';
+            clipContainer.appendChild(title);
           }
         } catch (error) {
           console.error(error);
@@ -502,7 +512,7 @@ function videoSyling() {
 }
 
 function videoController() {
-  const nextVideoIndex = videoIndex > 8 ? 1 : videoIndex + 1;
+  const nextVideoIndex = videoIndex > 7 ? 1 : videoIndex + 1;
   video.setAttribute("src", `/images/0${nextVideoIndex}.mp4`);
   video.play();
   videoIndex++;

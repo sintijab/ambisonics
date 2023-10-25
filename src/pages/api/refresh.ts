@@ -37,12 +37,12 @@ export const GET: APIRoute = async ({ url }): Promise<any> => {
       {
         headers: {
           "Content-Type": "application/json",
-          // "Cache-Control": "no-store",
-          // "Content-Security-Policy": "frame-ancestors 'none'",
-          // // "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
-          // "X-Content-Type-Options": "nosniff",
-          // "X-Frame-Options": "DENY",
-          // "Access-Control-Allow-Origin": '*'
+          "Cache-Control": "no-store",
+          "Content-Security-Policy": "frame-ancestors 'none'",
+          // "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "DENY",
+          "Access-Control-Allow-Origin": '*'
         },
       },
     );

@@ -12,6 +12,22 @@ function toggleRecommendations(e: any) {
 
 export async function handleSpotify(track: any) {
   try {
+    // Details
+    const recordings = document.querySelectorAll(".clip");
+    const clipContainer: HTMLElement = document.getElementById(
+      `sound_clip-${recordings.length}`,
+    ) as HTMLElement;
+    const title = document.createElement("div");
+    const track_title = document.createElement("p");
+    track_title.className = "link_button link_button_text";
+    track_title.textContent = `${track.sections?.[0]?.metadata?.[0].text}`;
+    title.appendChild(track_title);
+    const track_description = document.createElement("p");
+    track_description.textContent = `${track.subtitle}`;
+    track_description.className = "link_button link_button_text";
+    title.appendChild(track_description);
+    clipContainer.appendChild(title);
+    // Auth
     let access_token = getCookie(`access_token`);
     let refresh_token = getCookie(`refresh_token`);
     let authQuery = `access_token=${access_token}&refresh_token=${refresh_token}`;
@@ -28,16 +44,31 @@ export async function handleSpotify(track: any) {
       `api/search?${authQuery}&q=${trackUri}%2520${track.isrc ? isrc : ""}`,
     );
     if (!trackInfo) {
-      await fetchSpotify(
-        `api/search?${authQuery}&q=${trackUri}%2520${track.isrc ? isrc : ""}`,
+      let updated_token = getCookie(`access_token`);
+      let updated_authQuery = `access_token=${updated_token}&refresh_token=${refresh_token}`;
+      trackInfo = await fetchSpotify(
+        `api/search?${updated_authQuery}&q=${trackUri}%2520${track.isrc ? isrc : ""}`,
       );
     }
     // Track details
-    const {
-      tracks: { items },
-    } = trackInfo;
-    const trackDetails = items.find((item: { name: string }) =>
-      track.title.includes(item.name),
+    let trackDetails = trackInfo.tracks.items.find((item: { name: string }) =>
+      track.title.includes(item.name)
+    );
+    if (!trackDetails) {
+      // Track not found by isrc
+      trackInfo = await fetchSpotify(
+        `api/search?${authQuery}&q=${trackUri}`,
+      );
+      if (!trackInfo) {
+        let updated_token = getCookie(`access_token`);
+        let updated_authQuery = `access_token=${updated_token}&refresh_token=${refresh_token}`;
+        trackInfo = await fetchSpotify(
+          `api/search?${updated_authQuery}&q=${trackUri}`,
+        );
+      }
+    }
+    trackDetails = trackInfo.tracks.items.find((item: { name: string }) =>
+      track.title.includes(item.name)
     );
     const trackId = trackDetails?.id;
     if (trackId) {
@@ -49,33 +80,19 @@ export async function handleSpotify(track: any) {
           `api/features?${authQuery}&track_id=${trackId}`,
         );
       }
-      const track_title = document.createElement("p");
-      const track_description = document.createElement("p");
       const logo_link = document.createElement("a");
       logo_link.href = `https://open.spotify.com/track/${trackId}`;
       logo_link.target = "_blank";
-      track_title.className = "link_button link_button_text";
-      track_description.className = "link_button link_button_text";
       logo_link.className = "link_button link_button_img";
       const image = new Image();
       image.src = 'images/spotify_icon.png';
       image.height = 30;
-      track_title.textContent = `${track.sections?.[0]?.metadata?.[0].text}`;
-      track_description.textContent = `${track.subtitle}`;
       logo_link.textContent = 'Open Spotify';
-      const title = document.createElement("div");
       const title_spotify = document.createElement("p");
       title_spotify.className = 'title_spotify';
-      title.appendChild(track_title);
-      title.appendChild(track_description);
       title_spotify.appendChild(image);
       title_spotify.appendChild(logo_link);
-      const recordings = document.querySelectorAll(".clip");
-      const clipContainer: HTMLElement = document.getElementById(
-        `sound_clip-${recordings.length}`,
-      ) as HTMLElement;
       clipContainer.appendChild(title_spotify);
-      clipContainer.appendChild(title);
       // Recommendations
       const descr_wrapper = document.createElement("div");
       const description = document.createElement("p");
@@ -87,10 +104,11 @@ export async function handleSpotify(track: any) {
       clipContainer.appendChild(descr_wrapper);
       let seed_artists = trackDetails.artists.map((artist: any) => artist.id);
       seed_artists = seed_artists.join(",");
-      const seed_genres = track.genres.primary;
+      let seed_genres = track?.genres?.primary;
+      seed_genres = seed_genres ? encodeURI(seed_genres) : '';
       const seed_tracks = trackId;
       let recommendations = await fetchSpotify(
-        `api/recommendations?${authQuery}&seed_artists=${seed_artists}&seed_genres=${seed_genres}&seed_tracks=${seed_tracks}`,
+        `api/recommendations?${authQuery}&seed_artists=${seed_artists}${seed_genres ? '&seed_genres=' + seed_genres : ''}&seed_tracks=${seed_tracks}`,
       );
       if (!recommendations) {
         recommendations = await fetchSpotify(
