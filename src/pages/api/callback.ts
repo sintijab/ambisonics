@@ -26,7 +26,7 @@ export const GET: APIRoute = async ({
           }),
       );
     } else {
-      if (storedState) {
+      if (stateKey) {
         cookies.delete(stateKey);
       }
       var authOptions = {
@@ -50,7 +50,7 @@ export const GET: APIRoute = async ({
         method: "POST",
         body: params,
         headers: authOptions.headers,
-      }).catch((err) => console.error(err));
+      }).catch((err) => console.error(err + redirect_uri));
       const body = await response?.json();
       return redirect(
         "/?" +
