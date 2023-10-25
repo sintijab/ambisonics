@@ -23,7 +23,7 @@ if (access_token) {
   <div class="wrapper">
     <section class="main-controls" id="main_controls">
       <div class="intro">
-        <div class="intro_descr">
+        <d class="intro_descr">
           <h1>Syntia's</h1>
           <h2>Sound Stereogram</h2>
           <p>
@@ -37,10 +37,26 @@ if (access_token) {
             experience.
           </p>
           <!-- <a href="api/login">Authorize Spotify</a> -->
-          <button class="custom-btn btn-purple" id="startStereogram" class="bt"
-            >Play Sound Stereogram
-          </button>
-        </div>
+          <div class="actions">
+            <p class="custom-btn btn-white">
+              <a href="/api/login">
+                <Image
+                  src="/images/spotify_icon_black.png"
+                  alt="Listen on Spotify"
+                  width={30}
+                  height={30}
+                />
+                <span>Login with Spotify</span>
+              </a>
+            </p>
+            <button
+              class="custom-btn btn-purple"
+              id="startStereogram"
+              class="bt"
+              >Play Sound Stereogram
+            </button>
+          </div>
+        </d>
         <Image
           src="/images/7c9a8524-8336-4724-8397-e3dad69df726_03.avif"
           alt="sound performance with piano"
