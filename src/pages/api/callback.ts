@@ -27,7 +27,9 @@ export const GET: APIRoute = async ({
           }),
       );
     } else {
-      cookies.delete(stateKey);
+      if (storedState) {
+        cookies.delete(stateKey);
+      }
       var authOptions = {
         url: "https://accounts.spotify.com/api/token",
         form: {
