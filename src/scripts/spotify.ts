@@ -51,7 +51,7 @@ export async function handleSpotify(track: any) {
       );
     }
     // Track details
-    let trackDetails = trackInfo.tracks.items.find((item: { name: string }) =>
+    let trackDetails = trackInfo?.tracks?.items?.find((item: { name: string }) =>
       track.title.includes(item.name)
     );
     if (!trackDetails) {
@@ -67,7 +67,7 @@ export async function handleSpotify(track: any) {
         );
       }
     }
-    trackDetails = trackInfo.tracks.items.find((item: { name: string }) =>
+    trackDetails = trackInfo?.tracks?.items?.find((item: { name: string }) =>
       track.title.includes(item.name)
     );
     const trackId = trackDetails?.id;
