@@ -1,16 +1,15 @@
 import type { APIRoute } from "astro";
 import querystring from "querystring";
 
-var redirect_uri = `${import.meta.env.CANONICAL_URL}/api/callback`;
-var client_id = `${import.meta.env.CLIENT_ID}`;
-var client_secret = `${import.meta.env.CLIENT_SECRET}`;
-
 export const GET: APIRoute = async ({
   cookies,
   redirect,
   url,
   params,
 }): Promise<any> => {
+  var redirect_uri = `${import.meta.env.CANONICAL_URL}/api/callback`;
+  var client_id = `${import.meta.env.CLIENT_ID}`;
+  var client_secret = `${import.meta.env.CLIENT_SECRET}`;
   try {
     const queries = new URLSearchParams(url.search);
     const code = queries.get("code");
