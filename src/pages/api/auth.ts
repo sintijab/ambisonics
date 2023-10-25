@@ -9,12 +9,12 @@ export const GET: APIRoute = async ({ request }): Promise<any> => {
         return new Response(JSON.stringify('Success'), {
             headers: {
               "Content-Type": "application/json",
-              // "Cache-Control": "no-store",
-              // "Content-Security-Policy": "frame-ancestors 'none'",
-              // // "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
-              // "X-Content-Type-Options": "nosniff",
-              // "X-Frame-Options": "DENY",
-              // "Access-Control-Allow-Origin": '*'
+              "Cache-Control": "no-store",
+              "Content-Security-Policy": "frame-ancestors 'none'",
+              "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+              "X-Content-Type-Options": "nosniff",
+              "X-Frame-Options": "DENY",
+              "Access-Control-Allow-Origin": '*'
             },
           });
     } else {
@@ -22,12 +22,12 @@ export const GET: APIRoute = async ({ request }): Promise<any> => {
             status: 401,
             headers: {
               "Content-Type": "application/json",
-              // "Cache-Control": "no-store",
-              // "Content-Security-Policy": "frame-ancestors 'none'",
-              // // "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
-              // "X-Content-Type-Options": "nosniff",
-              // "X-Frame-Options": "DENY",
-              // "Access-Control-Allow-Origin": '*'
+              "Cache-Control": "no-store",
+              "Content-Security-Policy": "frame-ancestors 'none'",
+              "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+              "X-Content-Type-Options": "nosniff",
+              "X-Frame-Options": "DENY",
+              "Access-Control-Allow-Origin": '*'
             },
           });
     }
