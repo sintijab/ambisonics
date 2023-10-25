@@ -38,8 +38,7 @@ export const GET: APIRoute = async ({
         },
         headers: {
           Authorization:
-            "Basic " +
-            Buffer.from(client_id + ":" + client_secret).toString("base64"),
+            "Basic " + btoa(client_id + ":" + client_secret)
         },
       };
       const params = new URLSearchParams();
