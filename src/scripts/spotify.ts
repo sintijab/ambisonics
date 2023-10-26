@@ -27,7 +27,6 @@ export async function handleSpotify(track: any) {
     track_description.textContent = `${track.subtitle}`;
     track_description.className = "link_button link_button_text";
     title.appendChild(track_description);
-    clipContainer.appendChild(title);
     // Auth
     let access_token = getCookie(`access_token`);
     if (!access_token) {
@@ -96,6 +95,7 @@ export async function handleSpotify(track: any) {
       title_spotify.appendChild(image);
       title_spotify.appendChild(logo_link);
       clipContainer.appendChild(title_spotify);
+      clipContainer.appendChild(title);
       // Recommendations
       const descr_wrapper = document.createElement("div");
       const description = document.createElement("p");
