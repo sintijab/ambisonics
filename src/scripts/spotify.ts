@@ -1,5 +1,6 @@
 import { fetchSpotify } from "../utils/request";
 import { getCookie } from "../utils/cookie";
+import { getAuthToken } from "../utils/auth";
 
 function toggleRecommendations(e: any) {
   const id = e.target!.id;
@@ -30,7 +31,10 @@ export async function handleSpotify(track: any) {
     // Auth
     let access_token = getCookie(`access_token`);
     let refresh_token = getCookie(`refresh_token`);
-    let authQuery = `access_token=${access_token}&refresh_token=${refresh_token}`;
+    if (!access_token) {
+      access_token = await getAuthToken();
+    }
+    let authQuery = `access_token=${access_token}`;
     // Track search
     const trackProvider = track.hub.providers.find(
       (provider: { type: "SPOTIFY" }) => provider.type === "SPOTIFY",
@@ -45,7 +49,7 @@ export async function handleSpotify(track: any) {
     );
     if (!trackInfo) {
       let updated_token = getCookie(`access_token`);
-      let updated_authQuery = `access_token=${updated_token}&refresh_token=${refresh_token}`;
+      let updated_authQuery = `access_token=${updated_token}`;
       trackInfo = await fetchSpotify(
         `api/search?${updated_authQuery}&q=${trackUri}%2520${track.isrc ? isrc : ""}`,
       );
