@@ -6,17 +6,6 @@ import "../styles/visualizer.css";
 import "@fontsource/dm-serif-display";
 import "@fontsource-variable/raleway";
 import "@fontsource-variable/cabin";
-
-const access_token = Astro.url.searchParams.get("access_token")! || "";
-const refresh_token = Astro.url.searchParams.get("refresh_token")! || "";
-
-if (access_token) {
-  Astro.cookies.set("access_token", access_token);
-  if (refresh_token) {
-    Astro.cookies.set("refresh_token", refresh_token);
-  }
-  return Astro.redirect("/");
-}
 ---
 
 <Layout title="Welcome to Syntia's Audio Stereograph!">
@@ -38,7 +27,7 @@ if (access_token) {
           </p>
           <!-- <a href="api/login">Authorize Spotify</a> -->
           <div class="actions">
-            <a href="/api/login" class="custom-btn btn-white">
+            <!-- <a href="/api/login" class="custom-btn btn-white">
               <Image
                 src="/images/spotify_icon_black.png"
                 alt="Listen on Spotify"
@@ -46,7 +35,7 @@ if (access_token) {
                 height={30}
               />
               <span>Login with Spotify</span>
-            </a>
+            </a> -->
             <button
               class="custom-btn btn-purple"
               id="startStereogram"

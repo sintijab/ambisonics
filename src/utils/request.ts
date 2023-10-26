@@ -1,3 +1,4 @@
+import { getAuthToken } from "./auth";
 import { getCookie, setCookie } from "./cookie";
 
 interface IOptions {
@@ -6,10 +7,10 @@ interface IOptions {
 }
 export async function fetchSpotify(url: string, options?: IOptions) {
   try {
-    const pw = getCookie("basic_auth_pw");
+    const password = getCookie("basic_auth_pw");
     let headers = new Headers();
     let username = "user";
-    headers.set("Authorization", "Basic " + btoa(username + ":" + pw));
+    headers.set("Authorization", "Basic " + btoa(username + ":" + password));
     const updatedOptions = {
       ...options,
       headers

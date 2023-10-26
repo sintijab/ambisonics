@@ -5,7 +5,6 @@ import { decodeBasicAuth } from "../../utils/auth";
 export const GET: APIRoute = async ({ url, request }): Promise<any> => {
   const queries = new URLSearchParams(url.search);
   const access_token = queries.get("access_token");
-  const refresh_token = queries.get("access_token");
   const password = decodeBasicAuth(request.headers.get('authorization')!);
 
   const headers = new Headers();
@@ -45,7 +44,7 @@ export const GET: APIRoute = async ({ url, request }): Promise<any> => {
   } catch (error: unknown) {
     console.error(`Error in player api route: ${error as string}`);
     const updated_token = await fetch(
-      `${import.meta.env.CANONICAL_URL}/api/refresh?refresh_token=${refresh_token}`,
+      `${import.meta.env.CANONICAL_URL}/api/token`,
       { headers }
     ).catch((err) => console.error(err));
     const body = await updated_token?.json();
