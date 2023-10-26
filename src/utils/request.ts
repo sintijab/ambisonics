@@ -19,17 +19,15 @@ export async function fetchSpotify(url: string, options?: IOptions) {
       if (res.ok) {
         return res.json();
       }
-      return res.json().then(async (err) => {
+      return res.json().then((err) => {
         console.log(err);
-        let access_token = await getAuthToken();
-        setCookie("access_token", access_token, 30);
-        return null;
+        if (err.access_token) {
+          setCookie("access_token", err.access_token, 30);
+          return null;
+        }
       });
     });
   } catch (e) {
     console.log(e);
-    let access_token = await getAuthToken();
-    setCookie("access_token", access_token, 30);
-    return null;
   }
 }

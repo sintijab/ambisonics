@@ -30,7 +30,6 @@ export async function handleSpotify(track: any) {
     clipContainer.appendChild(title);
     // Auth
     let access_token = getCookie(`access_token`);
-    let refresh_token = getCookie(`refresh_token`);
     if (!access_token) {
       access_token = await getAuthToken();
     }
@@ -65,7 +64,7 @@ export async function handleSpotify(track: any) {
       );
       if (!trackInfo) {
         let updated_token = getCookie(`access_token`);
-        let updated_authQuery = `access_token=${updated_token}&refresh_token=${refresh_token}`;
+        let updated_authQuery = `access_token=${updated_token}`;
         trackInfo = await fetchSpotify(
           `api/search?${updated_authQuery}&q=${trackUri}`,
         );
