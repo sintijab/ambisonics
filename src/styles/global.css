@@ -406,7 +406,7 @@ h2 {
 }
 
 .toggle_indicator-closed:after {
-  background: url('images/arrow_right.svg') no-repeat;
+  background: url('/images/arrow_right.svg') no-repeat;
   background-size: contain;
   content: "";
   display: block;
@@ -419,7 +419,7 @@ h2 {
 }
 
 .toggle_indicator:after {
-  background: url('images/arrow_down.svg') no-repeat;
+  background: url('/images/arrow_down.svg') no-repeat;
   background-size: contain;
   content: "";
   display: block;
