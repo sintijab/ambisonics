@@ -121,7 +121,7 @@ export async function handleSpotify(track: any) {
       const rec_element_list = document.createElement("ul");
       rec_element_list.id = `rec_element_list-${recordings.length}`;
       rec_element_list.className = "rec_list";
-      recommendations.tracks.forEach((rec_track: any) => {
+      recommendations?.tracks?.forEach((rec_track: any) => {
         const artists = rec_track?.artists?.map((artist: any) => artist.name);
         const rec_element_item = document.createElement("li");
         const rec_element = document.createElement("a");

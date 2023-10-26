@@ -406,20 +406,26 @@ h2 {
 }
 
 .toggle_indicator-closed:after {
-  content: "\01F892";
+  background: url('images/arrow_right.svg') no-repeat;
+  background-size: contain;
+  content: "";
+  display: block;
   font-size: 24pt;
   padding: 0 0 0 0.3rem;
-  vertical-align: -14%;
   font-weight: 700;
+  height: 20px;
   width: 20px;
   line-height: 1;
 }
 
 .toggle_indicator:after {
-  content: "\01F893";
-  padding: 0.5rem 0 0;
-  height: 15px;
-  display: flex;
+  background: url('images/arrow_down.svg') no-repeat;
+  background-size: contain;
+  content: "";
+  display: block;
+  padding: 0;
+  height: 20px;
+  width: 20x;
 }
 
 .title_spotify {
