@@ -55,7 +55,7 @@ function init() {
             headers
           });
           const res = await response.json();
-          const { track = {}, matches = [] } = res?.result;
+          const { track = {}, matches = [] } = res?.result || {};
           if (matches.length) {
             handleSpotify(track);
           } else {
