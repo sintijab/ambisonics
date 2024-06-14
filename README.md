@@ -1,5 +1,7 @@
 # Syntia's ambisonics, audio stereograph
 
+Audio visualizer, sound media recorder, available for audio recognition and list of recommendations.
+
 ## Project Structure
 
 Inside of your Astro project, you'll see the following folders and files:
