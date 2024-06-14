@@ -1,6 +1,6 @@
-# Syntia's ambisonics, audio stereograph
+# Syntia's stereograph
 
-Audio visualizer, sound media recorder, available for audio recognition and list of recommendations.
+Syntia's framework for live performaces, ambisonic visualizer on canvas with video controller, sound media recorder, available for audio recognition and list of recommendations.
 
 ## Project Structure
 
