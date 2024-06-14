@@ -1,4 +1,4 @@
-# Syntia's stereograph
+# Syntia's sound stereograph
 
 Syntia's audio framework for live performaces, ambisonic visualizer on canvas with video controller, sound media recorder, available for audio recognition and list of recommendations.
 
